@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   js-unit-tests:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     defaults:
       run:
@@ -83,7 +83,7 @@ jobs:
           retention-days: 7
 
   components-lib-tests:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     defaults:
       run:

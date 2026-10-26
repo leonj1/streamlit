@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   cli-regression:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     defaults:
       run:

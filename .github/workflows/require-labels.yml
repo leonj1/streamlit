@@ -6,7 +6,7 @@ on:
 
 jobs:
   security-assessment:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     permissions:
       pull-requests: read
@@ -19,7 +19,7 @@ jobs:
           count: 1
           labels: "security-assessment-completed"
   do-not-merge-guardrail:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     permissions:
       pull-requests: read
@@ -32,7 +32,7 @@ jobs:
           count: 0
           labels: "do-not-merge"
   change-description:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     permissions:
       pull-requests: read
@@ -45,7 +45,7 @@ jobs:
           count: 1
           labels: "change:feature,change:bugfix,change:refactor,change:chore,change:docs,change:other"
   impact-defined:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     permissions:
       pull-requests: read

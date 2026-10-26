@@ -44,7 +44,7 @@ env:
 
 jobs:
   build_info:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     name: "Build info"
 
@@ -72,7 +72,7 @@ jobs:
     needs:
       - build_info
 
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     strategy:
       fail-fast: false
@@ -150,7 +150,7 @@ jobs:
       # Additional permission needed to upload constraints
       contents: write
 
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     if: |
       github.repository == 'streamlit/streamlit' && (
       (github.event_name == 'push' && github.ref_name == 'develop') ||
@@ -202,7 +202,7 @@ jobs:
     needs:
       - build_info
 
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     # Runs triggered by PRs from forks or by dependabot won't run this job, since that PR wouldn't have secrets access
     # See: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions

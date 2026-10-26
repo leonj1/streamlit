@@ -7,7 +7,7 @@ on:
 
 jobs:
   create-nightly-tag:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     if: github.repository == 'streamlit/streamlit'
 
@@ -90,7 +90,7 @@ jobs:
       ref: ${{needs.create-nightly-tag.outputs.tag}}
 
   test-status-notification:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     if: ${{ always() }}
     # By default, jobs listed in needs must all complete successfully for the dependent job to run. always() conditional
@@ -120,7 +120,7 @@ jobs:
         run: python scripts/slack_notifications.py nightly playwright
 
   create-nightly-build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     # Tag creation & tests must all complete successfully for nightly build job to run.
     needs:
@@ -211,7 +211,7 @@ jobs:
         run: python scripts/slack_notifications.py nightly build
 
   setup-nightly-preview:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     needs: [create-nightly-tag, create-nightly-build]
     if: needs.create-nightly-build.outputs.enable-setup == 'true'

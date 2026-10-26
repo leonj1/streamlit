@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   playwright-e2e-tests-custom-components:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     defaults:
       run:
         shell: bash

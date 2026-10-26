@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   py-bare-executions:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     defaults:
       run:

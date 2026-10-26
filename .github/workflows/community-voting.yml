@@ -9,7 +9,7 @@ on:
 jobs:
   add-enhancement-comment:
     if: github.event.label.name == 'type:enhancement'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     permissions:
       issues: write
     steps:
@@ -30,7 +30,7 @@ jobs:
           reactions: "+1"
   add-bug-comment:
     if: github.event.label.name == 'type:bug'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     permissions:
       issues: write
     steps:
